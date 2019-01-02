@@ -6,7 +6,7 @@
   "private": true,
   "main": "server.js",
   "scripts": {
-    "server-dev": "node ./index.js"
+    "server-dev": "node ./server.js"
   },
   "license": "ISC",
   "dependencies": {

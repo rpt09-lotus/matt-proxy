@@ -1,17 +1,18 @@
 const express = require('express');
-const morgan = require('morgan');
-const path = require('path');
 const app = express();
-const port = process.env.PORT || 3000;
+const PORT = 3000;
 
-app.use(morgan('dev'));
-app.use(express.static(path.join(__dirname, 'public')));
+app.use('/', express.static(__dirname + '/public/'));
+// because we use layout.html...im going to just serve that as root
 
-app.get("/*", function (req, res){
-  res.sendFile(path.join(__dirname, 'public/index.html'));
+
+app.get('/', (req, res) => {
+  res.status(200).sendFile(__dirname + '/public/index.html');
 });
 
-app.listen(port, () => {
-  console.log(`server running port: ${port}`);
+
+
+app.listen(PORT, () => {
+  console.log(`listen on ${PORT}...`);
 });
-//
+
